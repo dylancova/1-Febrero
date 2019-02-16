@@ -1,17 +1,33 @@
-function setup() {
+var b= {
+  x : 0,
+  y : 0,
+  d : 50,
+  velx : 15
+};
+  
+  function setup() {
   createCanvas(400, 400);
-
+  b.x = width/2;
+  b.y = height/2;
 }
 
 function draw() {
-  background(180);
+  background(0);
+  show();
+  move();
+  bounce();
+}
 
+function show(){
+ellipse(b.x,b.y,b.d,b.d);
+}
 
-
-  if (mouseX >= 150 && mouseX <= 250 && mouseY >= 150 && mouseY <= 250 && mouseIsPressed) {
-    background(0, 255, 0);
-
+function move(){
+  b.x=b.x+b.velx;
+}
+function bounce(){
+  if(b.x<25||b.x>375 ){
+  b.velx=b.velx*-1;
   }
-  rect(150, 150, 100, 100);
-  console.log(mouseX, mouseY);
+  
 }
